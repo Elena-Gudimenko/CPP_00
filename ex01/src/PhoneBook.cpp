@@ -56,6 +56,14 @@ void PhoneBook::addContact(){
     std::getline(std::cin, darkest_secret);
     contact.setDarkestSecret(darkest_secret);
 
+    
+    if (first_name.empty() || last_name.empty() || nick_name.empty()
+        || phone_number.empty() || darkest_secret.empty()) {
+        std::cout << "All fields are required! Contact not saved.\n";
+        return;
+    }
+
+
     this->contact_list[this->index] = contact;
     if (this->index >= 7)
         this->index = 0;
